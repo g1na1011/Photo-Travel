@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+ 
+    <title>PhotoTravel</title>
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+  </head>
+   
+  <body>
+    <div>
+      <div class="row sticky">
+        <div class="col-md-4">
+          <h1 class="righteous"><span class="glyphicon glyphicon-globe"></span>PhotoTravel</h1>
+          <div>
+            <form ng-submit="getImg()">
+              <input ng-model="destination" placeholder="I want to go to..." required="">
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-8" ng-show="bookmarkShow">
+          <h4>Places to go before I die:</h4>
+          <!-- <div ng-repeat="item in bookmarks track by $index">
+            <span ng-click="removeItem(item)">{{ item }}</span>
+          </div> -->
+          <div ng-repeat="item in bookmarks track by $index">
+            <div class="col-md-3">
+              <div ng-click="removeItem(item)">
+                &#187; {{ item }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row images">
+        <!-- <table> -->
+          <div ng-repeat="(url, location) in displayObjects">
+            <div class="col-md-3">
+              <div ng-click="appendBookmark(location)">
+                {{ location }}<br/>
+                <img src="{{ url }}" style="width: 90%; height: 90%"/>
+              </div>
+            </div>
+          </div>
+        <!-- </table> -->
+      </div>
+    </div>
+  </body>
+</html>
